@@ -28,10 +28,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'me0=22@^$_1in)$u63c8ouv-u-)-ge
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-DEBUG = False
-# DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+# DEBUG = False
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
